@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Mobile Replay</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_continuous_capture_activiy">ContinuousCaptureActiviy</string>
+    <string name="launch_button">Start</string>
+    <string name="capture">Capture Replay</string>
+    <string name="secondsOfVideo">seconds of video</string>
+    <string name="nowRecording">[ RECORDING ]</string>
+    <string name="nowSaving">Saving</string>
+    <string name="recordingSucceeded">Replay Succeeded</string>
+    <string name="recordingFailed">Replay Failed</string>
+    <string name="stop_button_text">Stop</string>
+    <string name="play_button_text">Play</string>
+    <string name="locked60fps_checkbox">Play at 60fps</string>
+    <string name="loopPlayback_checkbox">Loop playback</string>
+    <string name="review_button">Review Replays</string>
+    <string name="title_activity_play_movie">PlayMovie</string>
+    <string name="delete">Delete</string>
+    <string name="upload">Upload</string>
+    <string name="not_implemented">Not Implemented</string>
+</resources>
