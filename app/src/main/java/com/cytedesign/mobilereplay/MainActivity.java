@@ -48,4 +48,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PlayMovieActivity.class);
         startActivity(intent);
     }
+
+    public void launchInstructions(View view){
+        Intent intent = new Intent(this, InstructionsActivity.class);
+        startActivity(intent);
+    }
 }

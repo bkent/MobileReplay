@@ -66,11 +66,14 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
     private boolean mFileSaveInProgress;
 
     private MainHandler mHandler;
-    private float mSecondsOfVideo;
+
+    private Handler mInitialDelayHandler = new Handler();
+    private boolean mRunningLongEnough;
+
 
     /**
      * Custom message handler for main UI thread.
-     * <p>
+     *
      * Used to handle camera preview "frame available" notifications, and implement the
      * blinking "recording" text.  Receives callback messages from the encoder thread.
      */
@@ -159,7 +162,16 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
         mHandler.sendEmptyMessageDelayed(MainHandler.MSG_BLINK_TEXT, 1500);
 
         mOutputFile = new File(getFilesDir(), getFileName());
-        mSecondsOfVideo = 0.0f;
+
+        mRunningLongEnough = false;
+
+        // just to delay the Capture button being enabled too soon (i.e. before the replay length)
+        mInitialDelayHandler.postDelayed(new Runnable() {
+            public void run() {
+                mRunningLongEnough = true;
+            }
+        }, REPLAY_LENGTH_SECONDS*1000);
+
         updateControls();
     }
 
@@ -289,7 +301,7 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
         //TextView tv = (TextView) findViewById(R.id.capturedVideoDesc_text);
         //tv.setText(str);
 
-        boolean wantEnabled = (mCircEncoder != null) && !mFileSaveInProgress;
+        boolean wantEnabled = (mCircEncoder != null) && !mFileSaveInProgress && mRunningLongEnough;
         Button button = (Button) findViewById(R.id.capture_button);
         if (button.isEnabled() != wantEnabled) {
             Log.d(TAG, "setting enabled = " + wantEnabled);
@@ -347,7 +359,7 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
      * Updates the buffer status UI.
      */
     private void updateBufferStatus(long durationUsec) {
-        mSecondsOfVideo = durationUsec / 1000000.0f;
+        //mSecondsOfVideo = durationUsec / 1000000.0f;
         updateControls();
     }
 

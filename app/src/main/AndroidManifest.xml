@@ -35,6 +35,11 @@
             android:name=".PlayMovieActivity"
             android:label="@string/title_activity_play_movie" >
         </activity>
+        <activity
+            android:name=".InstructionsActivity"
+            android:label="@string/title_activity_instructions"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
     </application>
 
 </manifest>

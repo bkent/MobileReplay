@@ -19,4 +19,6 @@
     <string name="delete">Delete</string>
     <string name="upload">Upload</string>
     <string name="not_implemented">Not Implemented</string>
+    <string name="title_activity_instructions">Instructions</string>
+    <string name="instructions_button">Instructions</string>
 </resources>

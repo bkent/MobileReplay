@@ -22,10 +22,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/review_button"
-        android:id="@+id/button"
+        android:id="@+id/bReview"
         android:layout_below="@+id/bLaunch"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:onClick="launchReview" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions_button"
+        android:id="@+id/bInsructions"
+        android:onClick="launchInstructions"
+        android:layout_below="@+id/bReview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
